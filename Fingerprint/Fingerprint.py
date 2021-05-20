@@ -2,7 +2,7 @@
 """
 Created on Mon Mar 15 15:15:56 2021
 
-@author: 11357
+@author: Shiv
 """
 
 from math import sqrt
@@ -69,7 +69,8 @@ class RSSVector():
     def __eq__(self, v2):
         return True if v2.n1 == self.n1 and  v2.n2 == self.n2 \
         and  v2.n3 == self.n3 and  v2.n4 == self.n4 else False
-        
+
+# define the cell class        
 class Cell():
     def __init__(self, v_, loc):
         '''
@@ -103,6 +104,7 @@ def NLateration(data, step=.1, xSize=0.0, ySize=0.0, zSize=0.0, md=.0, dmax=10):
 def newCell(n1, n2, n3, n4, l1, l2):
     return Cell(RSSVector(n1,n2,n3,n4), Location(l1,l2))
 
+# K-nearest Neighbors(Choose 4 nearest APs out of the whole list we have)
 def KNeighbors(fingerprints, sample):
     distances = []
     for row in fingerprints:
@@ -117,7 +119,7 @@ def KNeighbors(fingerprints, sample):
     return [x[1] for x in distances][:4]
 
 
-
+# Calculate the barryCenter of the 4 points we found with the fingerprinting database
 def solve_center(nC, d):
     return None if len(nC) != 4 or len(d) != 4 else  \
           1 / (1+d[0]/d[1]+d[0]/d[2]+d[0]/d[3])*nC[0].location \
@@ -126,11 +128,11 @@ def solve_center(nC, d):
         + 1 / (1+d[3]/d[1]+d[3]/d[2]+d[3]/d[0])*nC[3].location
 
 
-# ------------------------------------------main--------------------------------------------
+# ------------------------------------------main Fuction--------------------------------------------
 dataset = [(Location(.5,.5,.5), 3.0), (Location(4.0,.0,.0), 2.0), (Location(4.0,5.0,5.0), 4.2), (Location(3.0,3.0,3.0), 2.5)]
 dataset1 = [(Location(.5,.5,.5), 3.0), (Location(4.0,.0,.0), 2.0), (Location(4.0,5.0,5.0), 4.2)]
 Tf = []
-# cells of fingerprint
+# cells to calculate fingerprint database
 Tf = [[newCell(-38,-27,-54,-13,2,2),newCell(-74,-62,-48,-33,6,2),newCell(-13,-28,-12,-40,10,2) ],\
       [newCell(-34,-27,-38,-41,2,6), newCell(-64,-48,-72,-35,6,6), newCell(-45,-37,-20,-15,10,6)], \
       [newCell(-17,-50,-44,-33,2,10), newCell(-27,-28,-32,-45,6,10), newCell(-30,-20,-60,-40,10,10)]]
