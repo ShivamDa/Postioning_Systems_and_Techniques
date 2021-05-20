@@ -1,0 +1,2 @@
+# Postioning_Systems_and_Techniques
+This Project Consists of 3 techniques to calculate the position in both Indoor and outdoor environments by slight modifications. These techniques majorly dependent on the radio communication between the device and the infrastructure. Also there is technique to use previous results to predict the future paths. Types of techniques : 1) N-lateration 2) Fingerprinting 3) HMM 
