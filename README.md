@@ -1,4 +1,4 @@
-### Postioning_Systems_and_Techniques
+### Postioning_Systems_and_Techniques_Using_Access_points_and_wifi_mobile_terminal
 This Project Consists of 3 techniques to calculate the position in both Indoor and outdoor environments by slight modifications. These techniques majorly dependent on the radio communication between the device and the infrastructure. Also there is technique to use previous results to predict the future paths. These algorithms are 
 Types of techniques : 
 1) N-lateration 
